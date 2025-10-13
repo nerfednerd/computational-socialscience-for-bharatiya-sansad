@@ -36,7 +36,8 @@ def build_primary_header_regex():
         r"HON(?:'?\s*BLE|OURABLE|\.?BLE|\.?)",
         r"Hon(?:'?ble|\.?)",
         r"SHRI", r"SRI", r"SHRIMATI", r"SMT(?:\.)?",
-        r"श्री(?:मति|)|श्रीमती|श्रीमति"
+        r"श्री(?:मति|)|श्रीमती|श्रीमति",
+        r"माननीय"
     ]
     prefix = r"(?:%s)" % "|".join(honorifics)
     pattern = rf"^(?:\*{{1,2}}\s*)?\s*(?P<speaker>{prefix}[\s\S]{{0,300}}?):"

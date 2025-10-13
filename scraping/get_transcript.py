@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 import time
 
 def scrape_debate(url, output_file):
-    # Setup Selenium ChromeDriver
+    # setup selenium chromedriver
     service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service)
 
@@ -15,7 +15,7 @@ def scrape_debate(url, output_file):
     soup = BeautifulSoup(driver.page_source, "html.parser")
     driver.quit()
 
-    # Locate debate text inside the table
+    # locate debate text inside the table
     table = soup.find("div", id="__next").find("table")
     tbody = table.find("tbody")
     debate_td = tbody.find("tr").find_all("td")[1]
@@ -26,7 +26,7 @@ def scrape_debate(url, output_file):
         if text.strip():
             paragraphs.append(text)
 
-    # Save into structured text file
+    # save into structured text file
     with open(output_file, "w", encoding="utf-8") as f:
         for para in paragraphs:
             f.write(f"{para}\n\n")  # just paragraphs, no numbering
