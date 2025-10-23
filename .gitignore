@@ -21,3 +21,4 @@ Thumbs.db
 *.tmp
 
 preprocessing/agg_outputs
+metadata/members_list
